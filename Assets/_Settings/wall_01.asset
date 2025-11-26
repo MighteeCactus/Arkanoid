@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80299977b0c2c5a4c818847004dc929a, type: 3}
+  m_Name: wall_01
+  m_EditorClassIdentifier: 
+  Health: 1
+  Bounce: {fileID: 11400000, guid: 4fc2a106bd9023b4c86773169150a823, type: 2}
+  ImpactSound: {fileID: 8300000, guid: f9da5ff35aace7147801e0025e71bfdd, type: 3}
+  DieSound: {fileID: 0}
+  Prefab: {fileID: 0}

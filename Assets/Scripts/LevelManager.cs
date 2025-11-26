@@ -1,12 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using Arkanoid.Data;
-using Arkanoid.States;
-using Arkanoid.Util;
+using Arkanoid.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Arkanoid
 {
@@ -22,21 +18,25 @@ namespace Arkanoid
         [SerializeField] private PlayerPlatformConfig _platformConfig;
         [SerializeField] private PlayerBallConfig _ballConfig;
         
+        [Header("UI")]
+        [SerializeField] private GameplayUiManager _uiManager;
+        
+        [Header("Debug")]
         [SerializeField] private int _enemiesAlive;
         
         private List<IEnemyObject> _enemies;
 
-        private CoroutineProcessor _ballLauncher;
         private PlayerBallObjectAbstract _ball;
+        private PlayerPlatformObjectAbstract _platform;
 
         private void Awake()
         {
-            var platform = Instantiate(_platformConfig.Prefab, _platformSpot.position, Quaternion.identity);
-            platform.GetComponent<IPlayerPlatformConfig>().SetConfig(_platformConfig);
+            _platform = Instantiate(_platformConfig.Prefab, _platformSpot.position, Quaternion.identity);
+            _platform.GetComponent<IPlayerPlatformConfig>().SetConfig(_platformConfig);
             
-            platform.GetComponentsInChildren<IPlayerPlatformConfig>().ToList()
+            _platform.GetComponentsInChildren<IPlayerPlatformConfig>().ToList()
                 .ForEach(pl => pl.SetConfig(_platformConfig));
-            platform.GetComponentsInChildren<IInitializable>().ToList()
+            _platform.GetComponentsInChildren<IInitializable>().ToList()
                 .ForEach(pl => pl.Initialize());
             
             _ball = Instantiate(_ballConfig.Prefab, _ballSpot.position, Quaternion.identity);
@@ -51,24 +51,6 @@ namespace Arkanoid
             }
 
             _enemiesAlive = _enemies.Count;
-
-            _ballLauncher = new CoroutineProcessor(this);
-            _ballLauncher.Run(LaunchBall);
-        }
-
-        private IEnumerator LaunchBall()
-        {
-            var wait = new WaitForEndOfFrame();
-            while (true)
-            {
-                if (Input.GetMouseButton(0) && _ball.BallState == PlayerBallState.Idle)
-                {
-                    _ball.Launch();
-                    yield break;
-                }
-
-                yield return wait;
-            }
         }
         
         private void Start()

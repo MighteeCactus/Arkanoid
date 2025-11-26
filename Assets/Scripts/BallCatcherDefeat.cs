@@ -1,14 +1,32 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Arkanoid
 {
-    public class BallCatcherDefeat : MonoBehaviour
+    public class BallCatcherDefeat : MonoBehaviour, IBounce
     {
+        private EventDispatcher _dispatcher;
+        
+        private void Start()
+        {
+            Initialize(EventDispatcherObject.Instance.Dispatcher);
+        }
+
+        /// <summary>
+        /// Притворимся, что DI у нас есть.
+        /// </summary>
+        private void Initialize(EventDispatcher dispatcher)
+        {
+            _dispatcher = dispatcher;
+        }
+
         private void OnCollisionEnter(Collision other)
         {
-            Debug.Log("Defeat");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            _dispatcher.OnLose?.Invoke();
+        }
+
+        public Vector3 BounceDirection(Transform bounceObj, Transform bounceFrom, Collision collision, Vector3 from, Vector3 normal)
+        {
+            return Vector3.zero;
         }
     }
 }

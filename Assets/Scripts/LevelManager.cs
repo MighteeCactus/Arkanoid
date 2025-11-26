@@ -70,6 +70,20 @@ namespace Arkanoid
                 yield return wait;
             }
         }
+        
+        private void Start()
+        {
+            Initialize(EventDispatcherObject.Instance.Dispatcher);
+        }
+
+        /// <summary>
+        /// Притворимся, что DI у нас есть.
+        /// </summary>
+        private void Initialize(EventDispatcher dispatcher)
+        {
+            dispatcher.OnWin += Win;
+            dispatcher.OnLose += Lose;
+        }
 
         private void OnEnemyDead(IEnemyObject enemy)
         {
@@ -80,9 +94,23 @@ namespace Arkanoid
 
                 if (_enemiesAlive <= 0)
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    Win();
                 }
             }
+        }
+
+        public void Win()
+        {
+            _platform.GetComponent<PlayerPlatformControl>().enabled = false;
+            _ball.Stop();
+            _uiManager.ShowVictory();
+        }
+        
+        public void Lose()
+        {
+            _platform.GetComponent<PlayerPlatformControl>().enabled = false;
+            _ball.Stop();
+            _uiManager.ShowDefeat();
         }
     }
 }

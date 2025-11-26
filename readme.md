@@ -9,3 +9,5 @@
 - Там, где необходим `MonoBehaviour`, у интерфейса есть соответствующий абстрактный класс;
 - Конфигурация игры по максимуму вынесена в отдельные `ScriptableObject`'ы;
 - Фреймворка Dependency Injection контейнера в проекте нет, но несколько классов "притворяются" что есть, чтобы получить зависимость `EventDispatcher`.
+
+[APK билд на GoogleDrive](https://drive.google.com/file/d/1eMiWw5n2Sex-XnqQDmMu1UNU7odDBLDz/view?usp=sharing)

@@ -1,7 +1,8 @@
 ﻿# Arkanoid Game Example
 
 ## Тестовое задание.
-[![Gameplay example](https://github.com/MighteeCactus/Arkanoid/tree/main/Media/gameplay.mp4)](https://github.com/MighteeCactus/Arkanoid/tree/main/Media/gameplay.jpg)
+
+[Пример геймплея](https://github.com/user-attachments/assets/6b1e4c23-2ff0-4a60-bebf-4d4c2790cf04)
 
 ## Описание
 - Все объекты в сцене сделаны с прицелом на использование интерфейсов;

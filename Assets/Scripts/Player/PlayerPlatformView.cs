@@ -13,12 +13,6 @@ namespace Arkanoid
 
         private Tween _shake;
 
-        private void OnValidate()
-        {
-            if (_audio == null)
-                _audio = GetComponent<AudioSource>();
-        }
-
         public override void TakeImpact(Action onCompleted = null)
         {
             _audio.Play();
@@ -34,6 +28,17 @@ namespace Arkanoid
         {
             _audio.clip = _config.ImpactSound;
             _shake = transform.DOPunchPosition(Vector3.down * 0.5f, 0.1f).SetAutoKill(false).Pause();
+        }
+        
+        private void OnValidate()
+        {
+            if (_audio == null)
+                _audio = GetComponent<AudioSource>();
+        }
+
+        private void OnDestroy()
+        {
+            _shake.Kill();
         }
     }
 }

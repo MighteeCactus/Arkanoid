@@ -71,5 +71,11 @@ namespace Arkanoid
                 .SetAutoKill(false)
                 .Pause();
         }
+
+        private void OnDestroy()
+        {
+            _flash.Kill();
+            _shake.Kill();
+        }
     }
 }

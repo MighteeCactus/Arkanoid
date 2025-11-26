@@ -15,11 +15,11 @@ namespace Arkanoid.Data
         
         public override List<IEnemyObject> Generate()
         {
-            var container = Instantiate(Prefab);
+            GameObject container = Instantiate(Prefab);
             container.transform.position = _initPos;
-            var result = new List<IEnemyObject>();
-            var objects = container.GetComponentsInChildren<EnemyObjectAbstract>().ToList();
-            foreach (var obj in objects)
+            List<IEnemyObject> result = new List<IEnemyObject>();
+            List<EnemyObjectAbstract> objects = container.GetComponentsInChildren<EnemyObjectAbstract>().ToList();
+            foreach (EnemyObjectAbstract obj in objects)
             {
                 obj.GetComponentsInChildren<IEnemyObjConfig>().ToList()
                     .ForEach(en => en.SetConfig(Enemy));

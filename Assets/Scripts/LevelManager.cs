@@ -45,7 +45,7 @@ namespace Arkanoid
             _enemyGenerator.SetStartPosition(_enemySpot.position);
             _enemies = _enemyGenerator.Generate();
             
-            foreach (var e in _enemies)
+            foreach (IEnemyObject e in _enemies)
             {
                 e.OnDead += OnEnemyDead;
             }

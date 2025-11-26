@@ -4,10 +4,7 @@
     {
         None,
         Idle,
-        Launching,
         Moving,
-        Collision,
-        Victory,
-        Defeat
+        Stopped,
     }
 }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397cd048c479def42b26ccd5f6db8c41, type: 3}
   m_Name: audio_01
   m_EditorClassIdentifier: 
-  Ambient: {fileID: 8300000, guid: 29910b9556c6b194aac36020b3a72b70, type: 3}
+  Music: {fileID: 8300000, guid: 29910b9556c6b194aac36020b3a72b70, type: 3}

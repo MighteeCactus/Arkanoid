@@ -3,9 +3,9 @@ using UnityEngine.Audio;
 
 namespace Arkanoid.Util
 {
-    public class AudioAmbient : MonoBehaviour
+    public class AudioManager : MonoBehaviour
     {
-        private static AudioAmbient _instance;
+        private static AudioManager _instance;
 
         [SerializeField] private AudioMixerGroup _mixerGrp;
         [SerializeField] private AudioConfig _settings;
@@ -32,8 +32,8 @@ namespace Arkanoid.Util
 
         private void Start()
         {
-            _audio.clip = _settings.Ambient;
-            _audio.time = _settings.Ambient.length * Random.Range(0f, 0.7f);
+            _audio.clip = _settings.Music;
+            _audio.time = _settings.Music.length * Random.Range(0f, 0.7f);
             _audio.Play();
         }
     }

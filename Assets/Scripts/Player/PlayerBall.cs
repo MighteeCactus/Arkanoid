@@ -37,11 +37,12 @@ namespace Arkanoid
             BallState = PlayerBallState.Moving;
         }
 
-        public override void RegisterCollision()
+        public override void Stop()
         {
-            
+            _rb.isKinematic = true;
+            BallState = PlayerBallState.Stopped;
         }
-        
+
         private void OnValidate()
         {
             if (_rb == null)

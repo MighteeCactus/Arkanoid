@@ -6,6 +6,6 @@ namespace Arkanoid
     {
         PlayerBallState BallState { get; set; }
         void Launch();
-        void RegisterCollision();
+        void Stop();
     }
 }

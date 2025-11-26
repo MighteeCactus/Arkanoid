@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: enemy_generator_linewall_01
   m_EditorClassIdentifier: 
   Enemy: {fileID: 11400000, guid: 8c9cb3726fdc3cd4f96009390cac9cbd, type: 2}
-  Rows: 1
-  Cols: 2
+  Rows: 4
+  Cols: 3
   HAlign: 2
   VAlign: 3
   Spacing: {x: 1, y: 0.7}

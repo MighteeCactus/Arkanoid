@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80299977b0c2c5a4c818847004dc929a, type: 3}
   m_Name: enemy_cube
   m_EditorClassIdentifier: 
-  Health: 3
+  Health: 1
   Bounce: {fileID: 11400000, guid: 4fc2a106bd9023b4c86773169150a823, type: 2}
   ImpactSound: {fileID: 8300000, guid: f0b785775125c394a8b33feb7f7768d2, type: 3}
   DieSound: {fileID: 0}
